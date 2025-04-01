@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>I can’t wait for you all to hear my new single 'Pum Pum'. Pre-save now: </title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 50px;
+        }
+        .button {
+            display: block;
+            width: 250px;
+            margin: 20px auto;
+            padding: 15px;
+            text-align: center;
+            font-size: 18px;
+            font-weight: bold;
+            color: white;
+            border-radius: 8px;
+            text-decoration: none;
+            transition: 0.3s;
+        }
+        .spotify {
+            background-color: #1DB954;
+        }
+        .apple {
+            background-color: #000;
+        }
+        .button:hover {
+            opacity: 0.8;
+        }
+        .countdown {
+            font-size: 24px;
+            font-weight: bold;
+            margin: 20px;
+            color: #f39c12;
+        }
+    </style>
+</head>
+<body>
+
+    <h2>Add Loreen's New Song 'Pum Pum' to Your Library</h2>
+    
+    <p class="countdown" id="timer">Time remaining: 00:00:00</p>
+    
+    <a class="button spotify" href="https://open.spotify.com/album/11oOeIlvorIYXnd5DLWuUn" target="_blank">➕ Add to Spotify</a>
+    <a class="button apple" href="https://music.apple.com/nz/album/warning-signs-single/1767869876" target="_blank">➕ Add to Apple Music</a>
+
+    <script>
+        // Set the target time to 11:00 PM today
+        var targetTime = new Date();
+        targetTime.setHours(23, 0, 0, 0);  // Set to 11:00 PM today
+
+        var x = setInterval(function() {
+            var now = new Date().getTime();
+            var distance = targetTime - now;
+
+            var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            document.getElementById("timer").innerHTML = "Time remaining: " + hours + "h " + minutes + "m " + seconds + "s";
+
+            if (distance < 0) {
+                clearInterval(x);
+                document.getElementById("timer").innerHTML = "The link is now live!";
+            }
+        }, 1000);
+    </script>
+
+</body>
+</html>
